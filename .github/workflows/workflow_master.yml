@@ -7,7 +7,7 @@ jobs:
   codecov:
     name: Codecov Workflow
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
-  
+
   qa:
     name: Quality Assurance
     runs-on: ubuntu-latest
