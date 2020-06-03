@@ -15,6 +15,9 @@ class BubbleSortTests(unittest.TestCase):
         self.assertEqual(bubble_sort([0, 'a', 3]), 'Can only sort lists of just numbers.')
         self.assertEqual(bubble_sort(['a', 'b', 'c']), 'Can only sort lists of just numbers.')
 
+    def test_bubble_sort_single_value(self):
+        self.assertEqual(bubble_sort([5]), [5])
+
     def test_bubble_sort_nums_positive(self):
         self.assertEqual(bubble_sort([20, 12, 45, 19, 91, 55]), [12, 19, 20, 45, 55, 91])
 
