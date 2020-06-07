@@ -9,7 +9,7 @@ def selection_sort(numbers):
         if not isinstance(number, Number):
             return 'Can only sort lists of just numbers.'
 
-    for i in enumerate(numbers):
+    for i, _ in enumerate(numbers):
         min_index = i
         for j in range(i + 1, len(numbers)):
             if numbers[min_index] > numbers[j]:

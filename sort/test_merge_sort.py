@@ -3,7 +3,7 @@ import unittest
 from merge import merge_sort
 
 
-class BubbleSortTests(unittest.TestCase):
+class MergeSortTests(unittest.TestCase):
 
     def test_merge_sort_none(self):
         self.assertEqual(merge_sort(None), 'Nothing to sort.')
