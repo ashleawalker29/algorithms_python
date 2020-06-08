@@ -1,6 +1,6 @@
 import unittest
 
-from anagrams import is_anagram
+from .anagrams import is_anagram
 
 
 class AnagramsTests(unittest.TestCase):
@@ -17,4 +17,4 @@ class AnagramsTests(unittest.TestCase):
         self.assertEqual(is_anagram('The army', 'Mary'), 'Partial anagram.')
 
     def test_anagrams_full(self):
-        self.assertEqual(is_anagram('Oh, lame saint.', 'The Mona Lisa'), 'Full anagrams.')
+        self.assertEqual(is_anagram('Oh, lame saint.', 'The Mona Lisa'), 'Full anagram.')
