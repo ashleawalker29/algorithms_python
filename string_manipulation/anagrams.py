@@ -8,6 +8,10 @@ def is_anagram(phrase, anagram):
     normalized_phrase = sorted(re.sub(r'[^\w\s]', '', phrase.lower().replace(' ', '')))
     normalized_anagram = sorted(re.sub(r'[^\w\s]', '', anagram.lower().replace(' ', '')))
 
+    extra_anagram_characters = set(normalized_anagram) - set(normalized_phrase)
+    if extra_anagram_characters:
+        return 'Not an anagram.'
+
     compared_characters = set(normalized_phrase) - set(normalized_anagram)
     if compared_characters:
         return 'Partial anagram.'
