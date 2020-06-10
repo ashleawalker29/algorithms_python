@@ -27,6 +27,6 @@ def binary_search(numbers, value, start=0, end=None):
 
     if value < numbers[position]:
         return binary_search(numbers, value, start=start, end=position)
-    elif value > numbers[position]:
+    if value > numbers[position]:
         return binary_search(numbers, value, start=position + 1, end=end)
     return 'Value was found within the list.'
