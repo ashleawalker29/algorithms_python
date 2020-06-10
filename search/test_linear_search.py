@@ -5,11 +5,12 @@ from linear import linear_search
 
 class LinearSearchTests(unittest.TestCase):
 
-    def test_linear_search_none(self):
+    def test_linear_search_no_list(self):
         self.assertEqual(linear_search(None, 1), 'Nothing to search through.')
-
-    def test_linear_search_empty(self):
         self.assertEqual(linear_search([], 1), 'Nothing to search through.')
+
+    def test_linear_search_no_value(self):
+        self.assertEqual(linear_search([1, 2, 3], None), 'Nothing to search for.')
 
     def test_linear_search_not_nums(self):
         self.assertEqual(linear_search([0, 'a', 3], 3),
