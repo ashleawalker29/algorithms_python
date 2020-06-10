@@ -3,10 +3,19 @@
 This directory has a number of sorting algorithms and their respective tests implemented.
 
 ##### Contents:
+- [Complexity Table](#complexity-table)
 - [Bubble Sort](#bubble-sort)
 - [Insertion Sort](#insertion-sort)
 - [Merge Sort](#merge-sort)
 - [Selection Sort](#selection-sort)
+
+## Complexity Table
+Algorithm         | Best Case  | Average Case | Worst Case | Space Complexity
+----------------- | ---------- | ------------ | -----------| ----------------
+Bubble Sort       | Ω(N)       | Θ(N^2)       | Ο(N^2)     | Ο(1)
+Insertion Sort    | Ω(N)       | Θ(N^2)       | Ο(N^2)     | Ο(1)
+Merge Sort        | Ω(Nlog(N)) | Θ(Nlog(N))   | Ο(Nlog(N)  | O(N)
+Selection Sort    | Ω(N^2)     | Θ(N^2)       | Ο(N^2)     | O(1)
 
 ## Bubble Sort
 ##### Also known as Sinking Sort.
