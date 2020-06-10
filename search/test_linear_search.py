@@ -12,13 +12,17 @@ class LinearSearchTests(unittest.TestCase):
     def test_linear_search_no_value(self):
         self.assertEqual(linear_search([1, 2, 3], None), 'Nothing to search for.')
 
-    def test_linear_search_not_nums(self):
+    def test_linear_search_not_nums_list(self):
         self.assertEqual(linear_search([0, 'a', 3], 3),
                          'Can only search through lists of just numbers.')
         self.assertEqual(linear_search(['a', 'b', 'c'], 'a'),
                          'Can only search through lists of just numbers.')
 
+    def test_linear_search_not_num_value(self):
+        self.assertEqual(linear_search([0, 1, 2], 'a'), 'Can only search for numbers.')
+
     def test_linear_search_single_value(self):
+        self.assertEqual(linear_search([0], 0), 'Value was found within the list.')
         self.assertEqual(linear_search([1], 1), 'Value was found within the list.')
         self.assertEqual(linear_search([1], 2), 'Value was not found within the list.')
 
