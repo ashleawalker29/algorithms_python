@@ -41,7 +41,7 @@ class BinarySearchTreeTests(unittest.TestCase):
 
         self.assertFalse(is_BST(tree))
 
-    def test_array_to_bst(self):
+    def test_sorted_array_to_bst(self):
         numbers = [1, 2, 3, 4, 5]
 
         self.assertTrue(
