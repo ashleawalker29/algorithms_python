@@ -1,3 +1,6 @@
+from numbers import Number
+
+
 class BSTNode():
     def __init__(self, root):
         self.root = root
@@ -6,6 +9,10 @@ class BSTNode():
 
 
 def array_to_bst(numbers):
+    for number in numbers:
+        if not isinstance(number, Number):
+            return 'Can only convert lists of just numbers.'
+
     numbers = sorted(numbers)
 
     if not numbers:

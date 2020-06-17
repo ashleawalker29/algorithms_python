@@ -7,6 +7,9 @@ def is_BST(root):
     evaluated_nodes = []
     previous_node = None
 
+    if root.root != 0 and not (root.left_branch or root.right_branch or evaluated_nodes):
+        return False
+
     while root or evaluated_nodes:
         while root:
             evaluated_nodes.append(root)
@@ -52,10 +55,8 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.assertTrue(is_BST(tree))
 
     def test_array_to_bst_not_nums(self):
-        self.assertFalse(
-            is_BST(array_to_bst([1, 2, 'a', 4, 5])))
-        self.assertFalse(
-            is_BST(array_to_bst(['a', 'b', 'c'])))
+        self.assertEqual(array_to_bst([1, 2, 'a', 4, 5]), 'Can only convert lists of just numbers.')
+        self.assertEqual(array_to_bst(['a', 'b', 'c']), 'Can only convert lists of just numbers.')
 
     def test_sorted_array_to_bst(self):
         numbers = [1, 2, 3, 4, 5]
