@@ -44,6 +44,11 @@ class BinarySearchTreeTests(unittest.TestCase):
 
         self.assertFalse(is_BST(tree))
 
+    def test_string_is_not_bst(self):
+        tree = 'This is an example.'
+
+        self.assertFalse(is_BST(tree))
+
     def test_is_bst_none(self):
         tree = BSTNode(None)
 
@@ -55,8 +60,13 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.assertTrue(is_BST(tree))
 
     def test_array_to_bst_not_nums(self):
-        self.assertEqual(array_to_bst([1, 2, 'a', 4, 5]), 'Can only convert lists of just numbers.')
-        self.assertEqual(array_to_bst(['a', 'b', 'c']), 'Can only convert lists of just numbers.')
+        partially_numerical = [1, 2, 'a', 4, 5]
+        self.assertEqual(array_to_bst(partially_numerical), 'Can only convert lists of just numbers.')
+        self.assertFalse(is_BST(array_to_bst(partially_numerical)))
+
+        non_numerical = ['a', 'b', 'c']
+        self.assertEqual(array_to_bst(non_numerical), 'Can only convert lists of just numbers.')
+        self.assertFalse(is_BST(array_to_bst(partially_numerical)))
 
     def test_sorted_array_to_bst(self):
         numbers = [1, 2, 3, 4, 5]
