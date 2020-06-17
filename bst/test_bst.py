@@ -41,6 +41,22 @@ class BinarySearchTreeTests(unittest.TestCase):
 
         self.assertFalse(is_BST(tree))
 
+    def test_is_bst_none(self):
+        tree = BSTNode(None)
+
+        self.assertFalse(is_BST(tree))
+
+    def test_is_bst_single_value(self):
+        tree = BSTNode(0)
+
+        self.assertTrue(is_BST(tree))
+
+    def test_array_to_bst_not_nums(self):
+        self.assertFalse(
+            is_BST(array_to_bst([1, 2, 'a', 4, 5])))
+        self.assertFalse(
+            is_BST(array_to_bst(['a', 'b', 'c'])))
+
     def test_sorted_array_to_bst(self):
         numbers = [1, 2, 3, 4, 5]
 
