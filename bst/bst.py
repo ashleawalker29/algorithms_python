@@ -6,6 +6,8 @@ class BSTNode():
 
 
 def array_to_bst(numbers):
+    numbers = sorted(numbers)
+
     if not numbers:
         return None
 
