@@ -1,6 +1,6 @@
 import unittest
 
-from bst import BSTNode
+from bst import BSTNode, array_to_bst
 
 
 def is_BST(root):
@@ -40,3 +40,9 @@ class BinarySearchTreeTests(unittest.TestCase):
         tree.right_branch = BSTNode(1)
 
         self.assertFalse(is_BST(tree))
+
+    def test_array_to_bst(self):
+        numbers = [1, 2, 3, 4, 5]
+
+        self.assertTrue(
+            is_BST(array_to_bst(numbers)))
