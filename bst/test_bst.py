@@ -4,6 +4,9 @@ from bst import BSTNode, array_to_bst
 
 
 def is_BST(root):
+    if not isinstance(root, BSTNode):
+        return False
+
     evaluated_nodes = []
     previous_node = None
 
