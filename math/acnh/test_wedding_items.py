@@ -1,11 +1,11 @@
 import unittest
 
-from Wedding_Items import WeddingItem
+from Wedding_Items import WeddingItem, wedding_items
 
 
 class WeddingItemsTests(unittest.TestCase):
 
-    def test_wedding_items_attributes(self):
+    def test_weddingitem_attributes(self):
         item = WeddingItem(
             name='Example Item',
             hcr=30,
@@ -13,4 +13,12 @@ class WeddingItemsTests(unittest.TestCase):
         self.assertEqual(item.name, 'Example Item')
         self.assertEqual(item.hcr, 30)
         self.assertEqual(item.sell_price, 25000)
-        self.assertEqual(round(item.ratio, 2), 8.33)
+        self.assertEqual(item.ratio, 8.33)
+
+    def test_wedding_items_attributes(self):
+        for wedding_item in wedding_items:
+            self.assertTrue(isinstance(wedding_item, WeddingItem))
+            self.assertTrue(wedding_item.name)
+            self.assertTrue(wedding_item.hcr > 0)
+            self.assertTrue(wedding_item.sell_price > 0)
+            self.assertTrue(wedding_item.ratio)
