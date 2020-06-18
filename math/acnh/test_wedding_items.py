@@ -29,6 +29,18 @@ class WeddingItemsTests(unittest.TestCase):
     def test_0_heart_crystals(self, input):
         self.assertEqual(get_best_wedding_items(), {})
 
+    @patch('best_wedding_items.get_input', return_value='Not a number')
+    def test_string_user_input(self, input):
+        self.assertEqual(
+            get_best_wedding_items(),
+            'Heart crystals can only be whole numbers. Quitting...')
+
+    @patch('best_wedding_items.get_input', return_value=2.0)
+    def test_double_user_input(self, input):
+        self.assertEqual(
+            get_best_wedding_items(),
+            'Heart crystals can only be whole numbers. Quitting...')
+
     @patch('best_wedding_items.get_input', return_value=50)
     def test_50_heart_crystals(self, input):
         self.assertEqual(
