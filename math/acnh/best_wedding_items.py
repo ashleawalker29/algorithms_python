@@ -13,6 +13,9 @@ def get_best_wedding_items():
 
     user_input = get_input('Enter the number of heart crystals that you have to trade: ')
 
+    if not isinstance(user_input, int):
+        return 'Heart crystals can only be whole numbers. Quitting...'
+
     best_items = {}
     for item in wedding_items_by_ratio:
         if user_input >= item.hcr:
