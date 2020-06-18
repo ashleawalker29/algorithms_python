@@ -23,7 +23,7 @@ class WeddingItemsTests(unittest.TestCase):
             self.assertTrue(wedding_item.name)
             self.assertTrue(wedding_item.hcr > 0)
             self.assertTrue(wedding_item.sell_price > 0)
-            self.assertTrue(wedding_item.ratio > 0)
+            self.assertTrue(wedding_item.ratio > 1)
 
     @patch('best_wedding_items.get_input', return_value=0)
     def test_0_heart_crystals(self, input):
