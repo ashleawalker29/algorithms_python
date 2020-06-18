@@ -28,3 +28,8 @@ class WeddingItemsTests(unittest.TestCase):
     @patch('best_wedding_items.get_input', return_value=0)
     def test_0_heart_crystals(self, input):
         self.assertEqual(get_best_wedding_items(), {})
+
+    @patch('best_wedding_items.get_input', return_value=50)
+    def test_50_heart_crystals(self, input):
+        self.assertEqual(get_best_wedding_items(),
+                         {'Wedding Pipe Organ': 1, 'Wedding Table': 1, 'Wedding Flower Stand': 1})
