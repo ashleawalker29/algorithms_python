@@ -5,7 +5,7 @@ from WeddingItems import wedding_items
 
 def get_input(text):
     try:
-        text = int(raw_input(text))
+        text = int(input(text))
     except(ValueError):
         return 'Not an Integer.'
     return text
