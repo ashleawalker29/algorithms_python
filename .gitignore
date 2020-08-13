@@ -4,3 +4,6 @@ __pycache__/
 *.py[cod]
 
 .DS_Store
+
+# Decrypted Secrets
+superuser_secret.json
