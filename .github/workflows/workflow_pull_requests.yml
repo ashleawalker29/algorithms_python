@@ -4,6 +4,15 @@ on: [pull_request]
 
 jobs:
   qa:
+    name: Decrypt Secrets
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Decrypt superuser secret
+        run: |
+          gpg --quiet --decrypt --passphrase=${{ secrets.SUPERUSER_SECRETS_PASSPHRASE }}
+
     name: Quality Assurance
     runs-on: ubuntu-latest
 
