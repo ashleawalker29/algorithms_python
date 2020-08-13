@@ -12,6 +12,7 @@ jobs:
 
       - name: Create superuser_secret.json
         run: |
+          touch spreadsheet_manipulation/superuser_secret.json
           echo $SUPERUSER_SECRET >> spreadsheet_manipulation/superuser_secret.json
         env:
           SUPERUSER_SECRET: ${{ secrets.SUPERUSER_SECRET }}
