@@ -3,6 +3,19 @@ name: Pull Requests Workflow
 on: [pull_request]
 
 jobs:
+  superuser:
+    name: SuperUser File
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create superuser_secret.json
+        run: |
+          echo $SUPERUSER_SECRET >> spreadsheet_manipulation/superuser_secret.json
+        env:
+          SUPERUSER_SECRET: ${{ secrets.SUPERUSER_SECRET }}
+
   qa:
     name: Quality Assurance
     runs-on: ubuntu-latest
