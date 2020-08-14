@@ -18,7 +18,18 @@ def open_worksheet(worksheet_name):
 def get_all_keys(worksheet):
     return worksheet.row_values(1)
 
-def get_all_needed_cards(worksheet):
-    worksheet_data = worksheet.get_all_records()
+def get_all_collection_cards():
+    collection_worksheet_names = [worksheet_name for worksheet_name in get_worksheet_names()
+                                  if 'Need' in worksheet_name]
 
-    return [data for data in [row for row in worksheet_data] if data['Need']]
+    opened_collection_worksheets = [open_worksheet(collection_worksheet) for collection_worksheet
+                                    in collection_worksheet_names]
+
+    collection_data = [opened_collection_worksheet.get_all_records() for opened_collection_worksheet
+                       in opened_collection_worksheets]
+
+    card_data = []
+    for data in collection_data:
+        card_data.extend([row for row in data])
+
+    return card_data
