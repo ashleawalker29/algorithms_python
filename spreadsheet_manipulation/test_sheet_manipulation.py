@@ -1,6 +1,7 @@
 import unittest
 
-from sheet_manipulation import get_worksheet_names, open_worksheet
+from sheet_manipulation import get_all_keys, get_worksheet_names, open_worksheet
+
 
 class SheetManipulationTests(unittest.TestCase):
 
@@ -17,3 +18,10 @@ class SheetManipulationTests(unittest.TestCase):
 
         for worksheet_name in worksheet_names:
             self.assertTrue(open_worksheet(worksheet_name))
+
+    def test_get_all_keys(self):
+        worksheet_names = get_worksheet_names()
+
+        for worksheet_name in worksheet_names:
+            opened_worksheet = open_worksheet(worksheet_name)
+            self.assertTrue(get_all_keys(opened_worksheet))
