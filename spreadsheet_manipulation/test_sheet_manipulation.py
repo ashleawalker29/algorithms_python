@@ -1,7 +1,6 @@
 import unittest
 
-from sheet_manipulation import (get_all_keys, get_all_collection_cards, get_worksheet_names,
-                                open_worksheet)
+from sheet_manipulation import get_all_collection_cards, get_worksheet_names, open_worksheet
 
 
 class SheetManipulationTests(unittest.TestCase):
@@ -18,11 +17,6 @@ class SheetManipulationTests(unittest.TestCase):
     def test_open_worksheets(self):
         for worksheet_name in self.worksheet_names:
             self.assertTrue(open_worksheet(worksheet_name))
-
-    def test_get_all_keys(self):
-        for worksheet_name in self.worksheet_names:
-            opened_worksheet = open_worksheet(worksheet_name)
-            self.assertTrue(get_all_keys(opened_worksheet))
 
     def test_get_all_collection_cards(self):
         CARD_KEYS = ['Card Number', 'Card Character', 'Have', 'Need']

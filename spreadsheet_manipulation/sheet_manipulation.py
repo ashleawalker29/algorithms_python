@@ -15,9 +15,6 @@ def get_worksheet_names():
 def open_worksheet(worksheet_name):
     return SHEET.worksheet(worksheet_name)
 
-def get_all_keys(worksheet):
-    return worksheet.row_values(1)
-
 def get_all_collection_cards():
     collection_worksheet_names = [worksheet_name for worksheet_name in get_worksheet_names()
                                   if 'Need' in worksheet_name]
