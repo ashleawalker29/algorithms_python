@@ -17,3 +17,8 @@ def open_worksheet(worksheet_name):
 
 def get_all_keys(worksheet):
     return worksheet.row_values(1)
+
+def get_all_needed_cards(worksheet):
+    worksheet_data = worksheet.get_all_records()
+
+    return [data for data in [row for row in worksheet_data] if data['Need']]
