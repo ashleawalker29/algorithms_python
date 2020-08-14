@@ -11,3 +11,6 @@ SHEET = CLIENT.open(SHEET_NAME)
 
 def get_worksheet_names():
     return [worksheet.title for worksheet in SHEET.worksheets()]
+
+def open_worksheet(worksheet_name):
+    return SHEET.worksheet(worksheet_name)
