@@ -9,7 +9,7 @@ class SheetManipulationTests(unittest.TestCase):
         self.worksheet_names = get_worksheet_names()
 
     def test_get_worksheet_names(self):
-        self.assertEqual(len(self.worksheet_names), 10)
+        self.assertEqual(len(self.worksheet_names), 9)
 
         for worksheet_name in self.worksheet_names:
             self.assertIsInstance(worksheet_name, str)
