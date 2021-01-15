@@ -3,7 +3,20 @@ on:
   push:
     branches:
       - 'master'
+
 jobs:
+  superuser:
+    name: SuperUser File
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create superuser_secret.json
+        run: ./.github/scripts/superuser_file_creation.sh
+        env:
+          SUPERUSER_SECRET: ${{ secrets.SUPERUSER_SECRET }}
+
   codecov:
     name: Codecov Workflow
     runs-on: ubuntu-latest
