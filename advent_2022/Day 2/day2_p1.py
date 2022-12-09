@@ -1,6 +1,4 @@
-def single_round(opponent, player):
-    """ Returns the total number of points gained for the round. """
-
+def get_status_score(opponent, player):
     status = 'loss'
     # Get player's win/lose/draw score for the round.
     if ((opponent.lower() == 'a' and player.lower() == 'x') or
@@ -12,15 +10,18 @@ def single_round(opponent, player):
           (opponent.lower() == 'c' and player.lower() == 'x')):
         status = 'win'
 
-    score = 0
     if status == 'loss':
-        score += 0
+        return 0
     elif status == 'draw':
-        score += 3
+        return 3
     elif status == 'win':
-        score += 6
+        return 6
 
-    # If it was a win or a draw, calculate added score with object used
+
+def single_round(opponent, player):
+    """ Returns the total number of points gained for the round. """
+    score = get_status_score(opponent, player)
+
     if player.lower() == 'x':
         score += 1
     elif player.lower() == 'y':
