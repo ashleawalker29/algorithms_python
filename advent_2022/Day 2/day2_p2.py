@@ -1,6 +1,4 @@
-def single_round(opponent, player):
-    """ Returns the total number of points gained for the round. """
-
+def get_player_choice(opponent, player):
     choice = ''
     # If the round should be a loss.
     if player.lower() == 'x':
@@ -22,22 +20,31 @@ def single_round(opponent, player):
         elif opponent.lower() == 'c':
             choice = 'a'
 
+    return choice
+
+def get_status_score(opponent, player):
     status = 'loss'
     # Get player's win/lose/draw score for the round.
-    if opponent.lower() == choice.lower():
+    if opponent.lower() == player.lower():
         status = 'draw'
-    elif ((opponent.lower() == 'a' and choice.lower() == 'b') or
-          (opponent.lower() == 'b' and choice.lower() == 'c') or
-          (opponent.lower() == 'c' and choice.lower() == 'a')):
+    elif ((opponent.lower() == 'a' and player.lower() == 'b') or
+          (opponent.lower() == 'b' and player.lower() == 'c') or
+          (opponent.lower() == 'c' and player.lower() == 'a')):
         status = 'win'
 
-    score = 0
     if status == 'loss':
-        score += 0
+        return 0
     elif status == 'draw':
-        score += 3
+        return 3
     elif status == 'win':
-        score += 6
+        return 6
+
+def single_round(opponent, player):
+    """ Returns the total number of points gained for the round. """
+
+    choice = get_player_choice(opponent, player)
+
+    score = get_status_score(opponent, choice)
 
     # If it was a win or a draw, calculate added score with object used
     if choice.lower() == 'a':
