@@ -1,4 +1,4 @@
-def get_status_score(opponent, player):
+def get_status(opponent, player):
     status = 'loss'
     # Get player's win/lose/draw score for the round.
     if ((opponent.lower() == 'a' and player.lower() == 'x') or
@@ -10,12 +10,18 @@ def get_status_score(opponent, player):
           (opponent.lower() == 'c' and player.lower() == 'x')):
         status = 'win'
 
+    return status
+
+def get_status_score(opponent, player):
+    status = get_status(opponent, player)
+
     if status == 'loss':
         return 0
     elif status == 'draw':
         return 3
     elif status == 'win':
         return 6
+    return 0
 
 
 def single_round(opponent, player):
